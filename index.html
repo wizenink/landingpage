@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Maseda</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --accent-color: #666666;
+            --border-color: #e0e0e0;
+            --hover-color: #f5f5f5;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --text-color: #e0e0e0;
+            --accent-color: #a0a0a0;
+            --border-color: #333333;
+            --hover-color: #2a2a2a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', 'Monaco', 'Lucida Console', monospace;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.5rem;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+        }
+
+        .subtitle {
+            color: var(--accent-color);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+        }
+
+        .contact-info a {
+            color: var(--accent-color);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--accent-color);
+        }
+
+        .contact-info a:hover {
+            color: var(--text-color);
+            border-bottom-color: var(--text-color);
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            font-weight: normal;
+        }
+
+        .about {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-category {
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            background-color: var(--hover-color);
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            border-color: var(--accent-color);
+        }
+
+        .skill-category h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+        }
+
+        .skill-list {
+            list-style: none;
+            font-size: 0.9rem;
+            color: var(--accent-color);
+        }
+
+        .skill-list li {
+            margin-bottom: 0.3rem;
+        }
+
+        .experience-item {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border-left: 2px solid var(--border-color);
+            padding-left: 1.5rem;
+        }
+
+        .experience-item:hover {
+            border-left-color: var(--accent-color);
+        }
+
+        .job-title {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .company {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .date {
+            color: var(--accent-color);
+            font-size: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .description {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .footer {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--accent-color);
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .header {
+                margin-bottom: 2rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .theme-toggle {
+                position: static;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <button class="theme-toggle" id="themeToggle">[dark]</button>
+            <h1>David Maseda</h1>
+            <div class="subtitle">Graphics - Video Streaming Engineer</div>
+            <div class="contact-info">
+                <a href="mailto:david.masedan@gmail.com">david.masedan@gmail.com</a> | 
+                <a href="https://github.com/wizenink" target="_blank">github.com/wizenink</a> | 
+                <a href="https://www.linkedin.com/in/david-maseda-neira-98a042a2" target="_blank">linkedin.com/in/david-maseda-neira</a>
+            </div>
+        </header>
+
+        <main>
+            <section class="section">
+                <h2 class="section-title">About</h2>
+                <p class="about">
+                    Passionate about optimized and performant systems.
+                    Currently working as a Video Streaming Engineer, developing real-time video streaming solutions.
+                    I'm always looking for possibilities to achieve the best performance and scalability, leveraging all of the hardware capabilities.
+                </p>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Languages</h3>
+                        <ul class="skill-list">
+                            <li>C/C++</li>
+                            <li>Rust</li>
+                            <li>Ruby on Rails</li>
+                            <li>Python</li>
+                            <li>Erlang</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Streaming - Media</h3>
+                        <ul class="skill-list">
+                            <li>GStreamer</li>
+                            <li>FFmpeg</li>
+                            <li>OpenGL</li>
+                            <li>CUDA</li>
+                            <li>Video/Audio Codecs, HLS, DASH, RTP, RTSP, WebRTC...</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Streaming - Media</h3>
+                        <ul class="skill-list">
+                            <li>GStreamer</li>
+                            <li>FFmpeg</li>
+                            <li>OpenGL</li>
+                            <li>CUDA</li>
+                            <li>Video/Audio Codecs, HLS, DASH, RTP, RTSP, WebRTC...</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Other skills</h3>
+                        <ul class="skill-list">
+                            <li>TensorRT in real-timevideo pipelines</li>
+                            <li>Embedded systems</li>
+                            <li>Electronics/Hardware</li>
+                            <li>Bioinformatics / Genomics in bioinformatics</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Environments</h3>
+                        <ul class="skill-list">
+                            <li>AWS</li>
+                            <li>Linux</li>
+                            <li>Proxmox</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Experience</h2>
+                
+                <div class="experience-item">
+                    <div class="job-title">Senior Developer</div>
+                    <div class="company">CINFO</div>
+                    <div class="date">2019 - Present</div>
+                    <div class="description">
+                        Built and maintained high-performance video streaming solutions.
+                        Managed and optimized real-time, low-latency systems deployed in custom datacenters/cloud providers.
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Projects</h2>
+                
+                <div class="experience-item">
+                    <div class="job-title">Freesterra</div>
+                    <div class="company">Company consorcium in COVID-19</div>
+                    <div class="date">2020</div>
+                    <div class="description">
+                        Worked on a low-cost, highly reliant mechanical respirator to support healthcare workers in the fight against COVID-19.
+                        We were able to build a working product, including all hardware and firmware, directed to aid in the COVID-19 pandemic.
+                    </div>
+                </div>
+
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Last updated: 2025</p>
+        </footer>
+    </div>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Check for saved theme preference or default to light mode
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                body.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = '[light]';
+            } else {
+                body.removeAttribute('data-theme');
+                themeToggle.textContent = '[dark]';
+            }
+            localStorage.setItem('theme', theme);
+        }
+
+        setTheme(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        });
+
+        if (!localStorage.getItem('theme')) {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            setTheme(prefersDark ? 'dark' : 'light');
+        }
+    </script>
+</body>
+</html> 
